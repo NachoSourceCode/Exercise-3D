@@ -23,6 +23,7 @@
     Basic reports
     Transaction descriptions
 */
+//REMEMBER: If applied this commit will...
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,60 +37,75 @@ namespace AccountingApplication
     {
         static void Main(string[] args)
         {
+            //WHILE MAIN MENU IS SELECTED DISPLAY MAIN MENU.
             // define menu options
+            Console.Write("     MAIN MENU    \n");
             Console.WriteLine(" 1) Check Balances\n 2) View Account(s)\n " +
                 "3) Enter Transaction\n 4) View Reports\n");
             //present user with menu options.
             Console.WriteLine("Please choose a menu option:");
             ////get input
             var option = int.Parse(Console.ReadLine());
-            //act on input
-            // var selectedCheckBalances = checkBalances();
-            /*
+            // act on input
+            // create argument to go to a method based on an option selected.
+            //var testNavigation 
+            ///*
             if (option == 1)
             {
-                var selectedCheckBalances = checkBalances();
+                checkBalances();
             }
+            //*/
+            /*
             else if (option == 2)
             {
-                var selectedViewAccounts = viewAccounts()
+                viewAccounts();
             }
+            */
+            /*
             else if (option == 3)
             {
-                var selectedEnterTransaction = enterTransaction();
+                enterTransaction();
             }
+            */
+            /*
             else if (option == 4)
             {
-                var selectedViewReports = viewReports();
+                viewReports();
             }
+            */
+            ///*
             else
             {
                 Console.WriteLine("You did not select a valid menu option.");
                 Console.WriteLine("Please choose a menu option:");
+                return;
             }
-            */
-            //if (option (>= 1) && (<= 4));
-            // Create argument to go to a method based on an option selected.
+            //*/
         }
         /*
         // create main menu
         int mainMenu()
         {
-            char mMenu = option1, option2, option3, option4; 
+            // define menu options
+            Console.WriteLine(" 1) Check Balances\n 2) View Account(s)\n " +
+                "3) Enter Transaction\n 4) View Reports\n");
+            //present user with menu options.
+            Console.WriteLine("Please choose a menu option:");
         }
         */
+        ///* 
         // create check balances method
-     /* static int checkBalances()
-        {
-            Console.WriteLine(" 1) Account(s)\n 2) Return to Main Menu\n");
-            Console.WriteLine("Please select a menu option:");
-            
-        }
-     */
-      /*static int viewAccounts()
-        {
+        static void checkBalances()
+           {
+               Console.WriteLine("    CHECK BALANCES MENU    ");
+               Console.WriteLine(" 1) Account(s)\n 2) Return to Main Menu\n");
+               Console.WriteLine("Please select a menu option:");
+           }
+        //*/
+        /*static int viewAccounts()
+          {
 
-        }*/
+          }*/
         // create enter transaction method
         /*
         static int enterTransaction()
