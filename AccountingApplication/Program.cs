@@ -87,13 +87,13 @@ namespace AccountingApplication
             switch (selection)
             {
                 case 1:
-                    userWantsToLeave = checkReports();
+                    userWantsToLeave = CheckReports();
                     break;
                 case 2:
-                    userWantsToLeave = checkAccountBalances();
+                    userWantsToLeave = CheckAccountBalances();
                     break;
                 case 3:
-                    userWantsToLeave = enterTransaction();
+                    userWantsToLeave = EnterTransaction();
                     break;
                 case 4:
                     userWantsToLeave = true;
@@ -101,7 +101,7 @@ namespace AccountingApplication
             }
             return userWantsToLeave;
         }
-        private static bool checkReports()
+        private static bool CheckReports()
         {
             //throw new NotImplementedException();
             //Display view all ledgers
@@ -114,7 +114,7 @@ namespace AccountingApplication
             Console.Write(" Please select a menu option:");
             return (int.Parse(Console.ReadLine())) == 2;
         }
-        private static bool checkAccountBalances()
+        private static bool CheckAccountBalances()
         {
             //throw new NotImplementedException();
             //sql query output of a list of account(s) and their balances.
@@ -127,7 +127,7 @@ namespace AccountingApplication
             return int.Parse(Console.ReadLine()) == 2;
             
         }
-        private static bool enterTransaction()
+        private static bool EnterTransaction()
         {
             Console.Clear();
             Console.WriteLine(" Transaction(s) Menu    ");
