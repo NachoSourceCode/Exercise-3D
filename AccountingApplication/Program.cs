@@ -37,86 +37,130 @@ namespace AccountingApplication
     {
         static void Main(string[] args)
         {
-            //WHILE MAIN MENU IS SELECTED DISPLAY MAIN MENU.
-            // define menu options
-            Console.Write("     MAIN MENU    \n");
-            Console.WriteLine(" 1) Check Balances\n 2) View Account(s)\n " +
-                "3) Enter Transaction\n 4) View Reports\n");
-            //present user with menu options.
-            Console.WriteLine("Please choose a menu option:");
-            ////get input
-            var option = int.Parse(Console.ReadLine());
-            // act on input
-            // create argument to go to a method based on an option selected.
-            //var testNavigation 
-            ///*
-            if (option == 1)
+            var userDone = false;
+
+            do
             {
-                checkBalances();
+                displayMainMenu();
+                var doneReceivedInput = obtainUserInput(elicitUserInput());
             }
-            //*/
-            /*
-            else if (option == 2)
+            while (!userDone);
+           
+        }
+        private static void displayMainMenu()
+        {
+            Console.Clear();
+            Console.WriteLine(" MAIN MENU");
+            Console.WriteLine("  1) Check Reports");
+            Console.WriteLine("  2) Check Account(s)");
+            Console.WriteLine("  3) Enter Transaction");
+            Console.WriteLine("  4) Exit Program", '\n');
+        }
+        public static int elicitUserInput()
+        {
+            var validInput = false;
+            int storedVal = 0;
+
+            do
             {
-                viewAccounts();
+                Console.Write("Please choose a menu option: ");
+
+                try
+                {
+                    storedVal = int.Parse(Console.ReadLine());
+
+                }
+                catch (FormatException ex)
+                {
+                    Console.Write("Invalid slection. Please choose again.");
+                }
             }
-            */
-            /*
-            else if (option == 3)
+            while ((storedVal < 1) || (storedVal > 4));
+            
+            return storedVal;
+            
+        }
+        public static bool obtainUserInput(int selection)
+        {
+            var userWantsToLeave = false;
+            
+            switch (selection)
             {
-                enterTransaction();
+                case 1:
+                    checkReports();
+                    break;
+                case 2:
+                    checkAccountBalances();
+                    break;
+                case 3:
+                    enterTransaction();
+                    break;
+                case 4:
+                    userWantsToLeave = true;
+                    break;
             }
-            */
-            /*
-            else if (option == 4)
+            return userWantsToLeave;
+        }
+        private static void checkReports()
+        {
+            //throw new NotImplementedException();
+            //Display view all ledgers
+            //Display select ledger
+            Console.Clear();
+            Console.WriteLine(" View Reports    ");
+            Console.WriteLine("  1) Main Menu");
+            Console.WriteLine("  2) Exit Program");
+            //illicit input
+            Console.Write(" Please select a menu option:");
+            int userWantsMainMenu = int.Parse(Console.ReadLine());
+            if (userWantsMainMenu == 1)
             {
-                viewReports();
+                displayMainMenu();
             }
-            */
-            ///*
             else
             {
-                Console.WriteLine("You did not select a valid menu option.");
-                Console.WriteLine("Please choose a menu option:");
-                return;
+                throw new NotImplementedException();
             }
-            //*/
         }
-        /*
-        // create main menu
-        int mainMenu()
+        private static void checkAccountBalances()
         {
-            // define menu options
-            Console.WriteLine(" 1) Check Balances\n 2) View Account(s)\n " +
-                "3) Enter Transaction\n 4) View Reports\n");
-            //present user with menu options.
-            Console.WriteLine("Please choose a menu option:");
+            //throw new NotImplementedException();
+            //sql query output of a list of account(s) and their balances.
+            Console.Clear();
+            //display general client account(s) and it's info.
+            Console.WriteLine(" General Client Account(s):    ");
+            Console.WriteLine("  1) Main Menu");
+            Console.WriteLine("  2) Exit Program");
+            Console.Write(" Please select a menu option:");
+            int userWantsMainMenu = int.Parse(Console.ReadLine());
+            if (userWantsMainMenu == 1)
+            {
+                displayMainMenu();
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
         }
-        */
-        ///* 
-        // create check balances method
-        static void checkBalances()
-           {
-               Console.WriteLine("    CHECK BALANCES MENU    ");
-               Console.WriteLine(" 1) Account(s)\n 2) Return to Main Menu\n");
-               Console.WriteLine("Please select a menu option:");
-           }
-        //*/
-        /*static int viewAccounts()
-          {
-
-          }*/
-        // create enter transaction method
-        /*
-        static int enterTransaction()
+        private static void enterTransaction()
         {
-
+            Console.Clear();
+            Console.WriteLine(" Transaction(s) Menu    ");
+            Console.WriteLine("  1) Add Account");
+            Console.WriteLine("  2) Remove Account");
+            Console.WriteLine("  3) Edit Account");
+            Console.WriteLine("  4) Main Menu");
+            Console.WriteLine("  5) Exit Program");
+            Console.Write(" Please select a menu option:");
+            int userWantsMainMenu = int.Parse(Console.ReadLine());
+            if (userWantsMainMenu == 4)
+            {
+                displayMainMenu();
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
         }
-        // create veiw reports method.
-        static int viewReports()
-        {
-
-        }
-        */
     }
 }
