@@ -42,7 +42,7 @@ namespace AccountingApplication
             do
             {
                 displayMainMenu();
-                var doneReceivedInput = obtainUserInput(elicitUserInput());
+                userDone = obtainUserInput(elicitUserInput());
             }
             while (!userDone);
            
@@ -87,7 +87,7 @@ namespace AccountingApplication
             switch (selection)
             {
                 case 1:
-                    checkReports();
+                    userWantsToLeave = checkReports();
                     break;
                 case 2:
                     checkAccountBalances();
@@ -101,48 +101,33 @@ namespace AccountingApplication
             }
             return userWantsToLeave;
         }
-        private static void checkReports()
+        private static bool checkReports()
         {
             //throw new NotImplementedException();
             //Display view all ledgers
             //Display select ledger
+            //illicit input
             Console.Clear();
             Console.WriteLine(" View Reports    ");
             Console.WriteLine("  1) Main Menu");
             Console.WriteLine("  2) Exit Program");
-            //illicit input
             Console.Write(" Please select a menu option:");
-            int userWantsMainMenu = int.Parse(Console.ReadLine());
-            if (userWantsMainMenu == 1)
-            {
-                displayMainMenu();
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
+            return (int.Parse(Console.ReadLine())) == 2;
         }
-        private static void checkAccountBalances()
+        private static bool checkAccountBalances()
         {
             //throw new NotImplementedException();
             //sql query output of a list of account(s) and their balances.
-            Console.Clear();
             //display general client account(s) and it's info.
+            Console.Clear();
             Console.WriteLine(" General Client Account(s):    ");
             Console.WriteLine("  1) Main Menu");
             Console.WriteLine("  2) Exit Program");
             Console.Write(" Please select a menu option:");
-            int userWantsMainMenu = int.Parse(Console.ReadLine());
-            if (userWantsMainMenu == 1)
-            {
-                displayMainMenu();
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
+            return int.Parse(Console.ReadLine()) == 2;
+            
         }
-        private static void enterTransaction()
+        private static bool enterTransaction()
         {
             Console.Clear();
             Console.WriteLine(" Transaction(s) Menu    ");
@@ -152,15 +137,7 @@ namespace AccountingApplication
             Console.WriteLine("  4) Main Menu");
             Console.WriteLine("  5) Exit Program");
             Console.Write(" Please select a menu option:");
-            int userWantsMainMenu = int.Parse(Console.ReadLine());
-            if (userWantsMainMenu == 4)
-            {
-                displayMainMenu();
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
+            return int.Parse(Console.ReadLine()) == 5;
         }
     }
 }
