@@ -42,7 +42,7 @@ namespace AccountingApplication
             do
             {
                 displayMainMenu();
-                userDone = obtainUserInput(elicitUserInput());
+                userDone = directUserInput(elicitUserInput());
             }
             while (!userDone);
            
@@ -80,7 +80,7 @@ namespace AccountingApplication
             return storedVal;
             
         }
-        public static bool obtainUserInput(int selection)
+        public static bool directUserInput(int selection)
         {
             var userWantsToLeave = false;
             
@@ -90,10 +90,10 @@ namespace AccountingApplication
                     userWantsToLeave = checkReports();
                     break;
                 case 2:
-                    checkAccountBalances();
+                    userWantsToLeave = checkAccountBalances();
                     break;
                 case 3:
-                    enterTransaction();
+                    userWantsToLeave = enterTransaction();
                     break;
                 case 4:
                     userWantsToLeave = true;
